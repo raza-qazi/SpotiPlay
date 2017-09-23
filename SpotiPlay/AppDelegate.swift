@@ -13,13 +13,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     // Property: Create a new status item (icon) in the menu bar with a fixed-length
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
+    var a = SpotifyAppleScript()
+    
+    // Create new popover for icon
+    let popover = NSPopover()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Configure status bar icon to initialize and apply an 'action'
         if let button = statusItem.button {
             button.image = NSImage(named:NSImage.Name("status_play"))
-            //button.action = #selector(printQuote(_:))
+        
+            // Open popover
+            button.action = #selector(togglePopover(_:))
         }
+        
+        // Show whatever is setup in 'SpotiPlayViewController'
+        popover.contentViewController = SpotiPlayViewController.freshController()
         self.constructMenu()
     }
 
@@ -29,23 +38,30 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @objc func playMusic() {
         print("Play option selected")
-        
-        let appleScript = "tell application id \"com.spotify.client\" \n playpause \n end tell"
-        var error: NSDictionary?
-        if let scriptObject = NSAppleScript(source: appleScript) {
-            if let output: NSAppleEventDescriptor = scriptObject.executeAndReturnError(&error) {
-                print(output.stringValue ?? "No Output")
-            } else if (error != nil) {
-                print("error: \(String(describing: error))")
-            }
-        }
+        a.playPauseTrack()
     }
     
     func constructMenu() {
-        let menu = NSMenu()
-        menu.addItem(withTitle: "play/pause current track", action: #selector(self.playMusic), keyEquivalent: "p")
+        let menu = NSMenu() // Create a new menu
+        menu.addItem(withTitle: "Play/Pause current track", action: #selector(self.playMusic), keyEquivalent: "p") // Add the option to play/pause current track
+        menu.addItem(NSMenuItem.separator()) // Add a separator between new menu items
+        menu.addItem(NSMenuItem(title: "Quit SpotiPlay", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")) // Add option to close application
         
         statusItem.menu = menu
+    }
+    
+    // Toggles the popover
+    @objc func togglePopover(_ sender: Any?) {
+        if popover.isShown {
+            // Close popover if currently open
+            popover.performClose(sender)
+        }
+        // Displays popover to user. Displays the popover relative to button location
+        else {
+            if let button = statusItem.button {
+                popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+            }
+        }
     }
 }
 

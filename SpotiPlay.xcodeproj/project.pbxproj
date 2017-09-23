@@ -11,6 +11,8 @@
 		78006E311F6F3EB300DCC818 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78006E301F6F3EB300DCC818 /* ViewController.swift */; };
 		78006E331F6F3EB300DCC818 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78006E321F6F3EB300DCC818 /* Assets.xcassets */; };
 		78006E361F6F3EB300DCC818 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78006E341F6F3EB300DCC818 /* Main.storyboard */; };
+		78D425961F7028CC00AC8BA6 /* SpotiPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D425951F7028CC00AC8BA6 /* SpotiPlayViewController.swift */; };
+		78D425981F703D3F00AC8BA6 /* SpotifyAppleScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D425971F703D3F00AC8BA6 /* SpotifyAppleScript.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		78006E351F6F3EB300DCC818 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		78006E371F6F3EB300DCC818 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78006E381F6F3EB300DCC818 /* SpotiPlay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpotiPlay.entitlements; sourceTree = "<group>"; };
+		78D425951F7028CC00AC8BA6 /* SpotiPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotiPlayViewController.swift; sourceTree = "<group>"; };
+		78D425971F703D3F00AC8BA6 /* SpotifyAppleScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAppleScript.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 			isa = PBXGroup;
 			children = (
 				78006E2E1F6F3EB300DCC818 /* AppDelegate.swift */,
+				78D425971F703D3F00AC8BA6 /* SpotifyAppleScript.swift */,
+				78D425951F7028CC00AC8BA6 /* SpotiPlayViewController.swift */,
 				78006E301F6F3EB300DCC818 /* ViewController.swift */,
 				78006E321F6F3EB300DCC818 /* Assets.xcassets */,
 				78006E341F6F3EB300DCC818 /* Main.storyboard */,
@@ -134,7 +140,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78D425981F703D3F00AC8BA6 /* SpotifyAppleScript.swift in Sources */,
 				78006E311F6F3EB300DCC818 /* ViewController.swift in Sources */,
+				78D425961F7028CC00AC8BA6 /* SpotiPlayViewController.swift in Sources */,
 				78006E2F1F6F3EB300DCC818 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
